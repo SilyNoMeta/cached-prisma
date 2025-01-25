@@ -19,6 +19,11 @@ export class LruCache implements Cache {
     return Promise.resolve();
   }
 
+  remove(key: string): Promise<void> {
+    this.map.set(key, null);
+    return Promise.resolve();
+  }
+
   flush(): Promise<void> {
     this.map.clear();
     return Promise.resolve();

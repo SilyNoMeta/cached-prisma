@@ -24,6 +24,10 @@ export class Redis implements Cache {
     await this.client.set(key, value, "EX", ttl || this.lifetime);
   }
 
+  async remove(key: string): Promise<void> {
+    await this.client.del(key);
+  }
+
   async flush(): Promise<void> {
     await this.client.flushdb();
   }

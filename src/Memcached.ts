@@ -35,6 +35,18 @@ export class Memcached implements Cache {
     });
   }
 
+  remove(key: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.client.del(key, (err: string) => {
+        if (err) {
+          reject(new Error(err));
+        } else {
+          resolve();
+        }
+      });
+    });
+  }
+
   flush(): Promise<void> {
     return new Promise((resolve) => {
       this.client.flush(() => {
