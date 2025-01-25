@@ -185,6 +185,7 @@ Caches implement safe read and write methods:
 export interface Cache {
   read: (key: string) => Promise<Maybe<string>>;
   write: (key: string, value: string) => Promise<void>;
+  remove: (key: string) => Promise<void>;
   flush: () => Promise<void>;
 }
 ```
