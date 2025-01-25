@@ -172,11 +172,12 @@ Also Redis support is provided out of the box:
 import { Redis } from "cached-prisma";
 
 class CustomPrisma extends Prisma {
-  static override cacheFactory = () => new Redis("127.0.0.1", 6379, 10);
+  static override cacheFactory = () => new Redis("127.0.0.1", 6379, "", 10);
 }
 ```
 
-The third constructor parameter each time is the storage lifetime of each write in seconds.
+The third constructor parameter is the redis password (if any).
+The fourth constructor parameter each time is the storage lifetime of each write in seconds.
 
 Caches implement safe read and write methods:
 
