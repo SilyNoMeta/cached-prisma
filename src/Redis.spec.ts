@@ -1,7 +1,7 @@
 import { Redis } from "./Redis";
 
 describe("Redis", () => {
-  const cache = new Redis("0.0.0.0", 6379, 1);
+  const cache = new Redis("0.0.0.0", 6379, "", 1);
 
   afterAll(() => {
     cache.close();

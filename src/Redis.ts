@@ -6,8 +6,13 @@ export class Redis implements Cache {
 
   private client: RedisClient;
 
-  constructor(host = "0.0.0.0", port = 6379, lifetime = 10, prefix = "cache") {
-    this.client = new RedisClient(port, host, { keyPrefix: prefix });
+  constructor(host = "0.0.0.0", port = 6379, password = "", lifetime = 10, prefix = "cache") {
+    this.client = new RedisClient({
+      host: host,
+      port: port,
+      password: password,
+      keyPrefix: prefix
+    });
     this.lifetime = lifetime;
   }
 
