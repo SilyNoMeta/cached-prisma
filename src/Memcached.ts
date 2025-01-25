@@ -23,9 +23,9 @@ export class Memcached implements Cache {
     });
   }
 
-  write(key: string, value: string): Promise<void> {
+  write(key: string, value: string, ttl?: number): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.client.set(key, value, this.lifetime, (err: string) => {
+      this.client.set(key, value, ttl || this.lifetime, (err: string) => {
         if (err) {
           reject(new Error(err));
         } else {

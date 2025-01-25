@@ -1,8 +1,8 @@
 {
-  "name": "cached-prisma",
+  "name": "@silynometa/cached-prisma",
   "description": "A Prisma client abstraction that simplifies caching.",
   "version": "1.5.0",
-  "repository": "https://github.com/joellefkowitz/cached-prisma",
+  "repository": "https://github.com/SilyNoMeta/cached-prisma",
   "homepage": "https://cached-prisma.readthedocs.io",
   "license": "MIT",
   "author": "Joel Lefkowitz",

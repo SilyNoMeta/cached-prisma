@@ -20,8 +20,8 @@ export class Redis implements Cache {
     return this.client.get(key);
   }
 
-  async write(key: string, value: string): Promise<void> {
-    await this.client.set(key, value, "EX", this.lifetime);
+  async write(key: string, value: string, ttl?: number): Promise<void> {
+    await this.client.set(key, value, "EX", ttl || this.lifetime);
   }
 
   async flush(): Promise<void> {
